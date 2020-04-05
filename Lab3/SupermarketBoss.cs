@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace Lab3
 {
-    public class SupermercadoJefe
+    public class SupermarketBoss
 
     {   List<Employee> employees = new List<Employee>();
         //List<Supervisor> supervisors = new List<Supervisor>();
@@ -11,7 +11,7 @@ namespace Lab3
         //List<Cajero> cajeros = new List<Cajero>();
         List<Client> clientes = new List<Client>();
 
-        public SupermercadoJefe()
+        public SupermarketBoss()
         {
             Supervisor supervisor1 = new Supervisor("Felipe", "Ruiz", 123456789, "02/9/1990", "Chile", 2000, "Supervisor Pasillos", "8:00", "18:00");
             employees.Add(supervisor1);
@@ -37,6 +37,7 @@ namespace Lab3
             string[] options = { "Ver Auxiliares", "Ver Supervisores ", "Ver Cajeros","Ver Clientes","Cambiar puesto de trabajo","Cambiar Sueldo", "Cambiar Horario", "Volver menu inico"};
 
             bool selectingMenu = true;
+
             int selectedOption = 1;
             while (selectingMenu)
             {
@@ -59,7 +60,7 @@ namespace Lab3
                 {
                     case 1:
 
-                        Console.WriteLine("Ver Auxiliares");
+                        Console.WriteLine("Informacion Auxiliares: ");
                         //List<Auxiliar> auxiliars = employees.OfType<Auxiliar>.ToList();
 
                         foreach (Auxiliar auxiliar in employees.OfType<Auxiliar>())
@@ -71,7 +72,7 @@ namespace Lab3
 
                     case 2:
 
-                        Console.WriteLine("Ver Supervisores");
+                        Console.WriteLine("Informacion Supervisores:");
                         foreach (Supervisor supervisor in employees.OfType<Supervisor>())
                         {
                             Console.WriteLine(supervisor.information());
@@ -81,7 +82,8 @@ namespace Lab3
                         break;
                     case 3:
 
-                        Console.WriteLine("Ver Cajeros");
+                        Console.WriteLine("Informacion Cajeros: ");
+
                         foreach (Cajero cajero in employees.OfType<Cajero>())
                         {
                             Console.WriteLine(cajero.information());
@@ -92,7 +94,7 @@ namespace Lab3
 
                     case 4:
 
-                        Console.WriteLine("Ver Cliente");
+                        Console.WriteLine("Informacion Cliente: ");
 
                         foreach (Client client in clientes)
                         {
@@ -115,7 +117,8 @@ namespace Lab3
                         changeWorkingTime();
                         break;
                     case 8:
-                        Console.WriteLine("Volver a menu inical");
+                        Console.WriteLine("Volviendo a Menu inical");
+                        System.Threading.Thread.Sleep(1000);
                         selectingMenu = false;
                         break;
 
@@ -148,12 +151,15 @@ namespace Lab3
 
         private void changeJob()
         {
-            Console.WriteLine("Cambiar puesto de trabajo");
+            Console.WriteLine("Cambiar puesto de trabajo:");
             Console.WriteLine("Ingrese rut Del empleado a cambiar de puesto\n");
+
+            System.Threading.Thread.Sleep(1000);
 
             Employee employee = findEmployee(123456789);
             Console.WriteLine(employee.information());
             Console.WriteLine("Ingrese puesto que lo quiere cambiar\n");
+            System.Threading.Thread.Sleep(1000);
             Cajero cajero = new Cajero(employee.Name, employee.Lastname, employee.Id, employee.BirthDate, employee.Nationality, employee.Salary, "Cajero", employee.StartTime, employee.EndTime);
             employees.Remove(employee);
             employees.Add(cajero);
@@ -165,9 +171,11 @@ namespace Lab3
         {
             Console.WriteLine("Cambio de salario");
             Console.WriteLine("Ingrese rut Del empleado a cambiar de Salario\n");
+            System.Threading.Thread.Sleep(1000);
             Employee employee = findEmployee(264835183);
             Console.WriteLine(employee.information());
             Console.WriteLine("Ingrese nuevo salario\n");
+            System.Threading.Thread.Sleep(1000);
             employee.Salary = 750;
             Console.WriteLine("Salario Cambiado\n");
             Console.WriteLine(employee.information());
@@ -178,10 +186,12 @@ namespace Lab3
         {
             Console.WriteLine("Cambio de Horario");
             Console.WriteLine("Ingrese rut Del empleado a cambiar de Horaio\n");
+            System.Threading.Thread.Sleep(1000);
             Employee employee = findEmployee(364713946);
             Console.WriteLine(employee.information());
             Console.WriteLine("Ingrese nuevo horario de partida\n");
             Console.WriteLine("Ingrese nuevo horario de termnio\n");
+            System.Threading.Thread.Sleep(1000);
             employee.StartTime = "10:00";
             employee.EndTime = "18:00";
             Console.WriteLine("Horario Cambiado\n");

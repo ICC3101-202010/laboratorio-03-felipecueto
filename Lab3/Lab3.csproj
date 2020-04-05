@@ -39,8 +39,9 @@
     <Compile Include="Jefe.cs" />
     <Compile Include="Supervisor.cs" />
     <Compile Include="Auxiliar.cs" />
-    <Compile Include="SupermercadoJefe.cs" />
+    <Compile Include="SupermarketBoss.cs" />
     <Compile Include="Cajero.cs" />
+    <Compile Include="SupermarketClient.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

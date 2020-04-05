@@ -6,9 +6,10 @@ namespace Lab3
     {
         public static void Main(string[] args)
         {
-            string[] options = { "Entrar como Jefe automatico", "Entrar como cliente automatico","Salir" };
+            string[] options = { "Entrar como Jefe automatico", "Entrar como cliente automatico","Entrar como Supervisor" ,"Salir" };
 
             bool selectingMenu = true;
+            int selectedOption = 2;
             while (selectingMenu)
             {
                 Console.Clear();
@@ -22,8 +23,8 @@ namespace Lab3
 
                     optionIndex += 1;
                 }
-
-                int selectedOption = Convert.ToInt32(Console.ReadLine());
+                System.Threading.Thread.Sleep(2000);
+                //int selectedOption = Convert.ToInt32(Console.ReadLine());
 
                 Console.Clear();
                 switch (selectedOption)
@@ -31,17 +32,24 @@ namespace Lab3
                     case 1:
           
                         Console.WriteLine("Entreaste como jefe");
-                        SupermercadoJefe supermercadoJefe = new SupermercadoJefe();
-                        supermercadoJefe.showMenu();
-            
+                        SupermarketBoss supermarketBoss = new SupermarketBoss();
+                        supermarketBoss.showMenu();
                         break;
                     case 2:
                         
                         Console.WriteLine("Entreaste Cliente");
-                        Console.ReadLine();
+                        SupermarketClient supermarketClient = new SupermarketClient();
+                        supermarketClient.showMenu();
+                        System.Threading.Thread.Sleep(1000);
                         break;
 
                     case 3:
+
+                        Console.WriteLine("Entreaste como supervisor");
+                        System.Threading.Thread.Sleep(1000);
+                        break;
+
+                    case 4:
                         Console.WriteLine("Programa cerrado");
                         selectingMenu = false;
                         break;
@@ -55,9 +63,11 @@ namespace Lab3
                         break;
 
 
-
+                
                 }
+                selectedOption += 1;
             }
+            
         }
     }
 }
