@@ -8,12 +8,12 @@ namespace Lab3
     {   List<Employee> employees = new List<Employee>();
         //List<Supervisor> supervisors = new List<Supervisor>();
         //List<Auxiliar> auxiliars = new List<Auxiliar>();
-        //List<Cajero> cajeros = new List<Cajero>();
         List<Product> products = new List<Product>();
         List<Client> clients = new List<Client>();
+        
 
 
-        public SupermarketBoss(List<Client>clients,List<Product>products)
+        public SupermarketBoss(List<Client>clients,List<Product>products,List<Cajero>cajeros)
         {
             Supervisor supervisor1 = new Supervisor("Felipe", "Ruiz", 123456789, "02/9/1990", "Chile", 2000, "Supervisor Pasillos", "8:00", "18:00");
             employees.Add(supervisor1);
@@ -23,12 +23,13 @@ namespace Lab3
             employees.Add(auxiliar1);
             Auxiliar auxiliar2 = new Auxiliar("Monica", "Cafe", 637492746, "04/05/1969", "Brasil", 500, "Auxilar limpieza", "12:00", "18:00");
             employees.Add(auxiliar2);
-            Cajero cajero1 = new Cajero("Claudia", "Verdugo", 364789254, "25/07/1975", "España", 1000, "Cajero", "8:00", "17:00");
-            employees.Add(cajero1);
-            Cajero cajero2 = new Cajero("Luis", "Singer", 364713946, "16/01/1960", "Chile", 1000, "Cajero", "8:00", "17:00");
-            employees.Add(cajero2);
             this.products = products;
             this.clients = clients;
+            foreach(Cajero cajero in cajeros)
+            {
+                employees.Add(cajero);
+            }
+            
            
         }
 
@@ -43,7 +44,7 @@ namespace Lab3
             while (selectingMenu)
             {
                 Console.Clear();
-                
+                Console.WriteLine("Entreaste como jefe");
                 int optionIndex = 1;
                 foreach (string option in options)
                 {

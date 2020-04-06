@@ -8,6 +8,8 @@ namespace Lab3
         {   //Base de datos falsa
             List<Product> products = new List<Product>();
             List<Client> clientes = new List<Client>();
+            List<ShoppingCart> sells = new List<ShoppingCart>();
+            List<Cajero> cajeros = new List<Cajero>();
 
             Product product1 = new Product("Leche", 1000, "Colun", "Leche descremada", 100);
             products.Add(product1);
@@ -24,6 +26,11 @@ namespace Lab3
             clientes.Add(cliente1);
             Client cliente2 = new Client("Pablo", "Bur", 638492703, "15/02/1992", "EEUU");
             clientes.Add(cliente2);
+
+            Cajero cajero1 = new Cajero("Claudia", "Verdugo", 364789254, "25/07/1975", "España", 1000, "Cajero", "8:00", "17:00");
+            cajeros.Add(cajero1);
+            Cajero cajero2 = new Cajero("Luis", "Singer", 364713946, "16/01/1960", "Chile", 1000, "Cajero", "8:00", "17:00");
+            cajeros.Add(cajero2);
 
             string[] options = { "Entrar como Jefe automatico", "Entrar como cliente automatico","Entrar como Supervisor" ,"Salir" };
 
@@ -51,13 +58,13 @@ namespace Lab3
                     case 1:
           
                         Console.WriteLine("Entreaste como jefe");
-                        SupermarketBoss supermarketBoss = new SupermarketBoss(clientes,products);
+                        SupermarketBoss supermarketBoss = new SupermarketBoss(clientes,products,cajeros);
                         supermarketBoss.showMenu();
                         break;
                     case 2:
                         
                         Console.WriteLine("Entreaste Cliente");
-                        SupermarketClient supermarketClient = new SupermarketClient(clientes,products);
+                        SupermarketClient supermarketClient = new SupermarketClient(products,clientes[1],sells,cajeros);
                         supermarketClient.showMenu();
                         System.Threading.Thread.Sleep(1000);
                         break;

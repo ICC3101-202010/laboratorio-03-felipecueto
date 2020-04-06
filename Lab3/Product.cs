@@ -21,7 +21,7 @@ namespace Lab3
 
         public string informationProduct()
         {
-            return $"Nombre: {name}\nPrecio: {price}\nMarca: {brand}\nDescripcion: {description}\nStock: {stock}";
+            return $"\nNombre: {name}\nPrecio: {price}\nMarca: {brand}\nDescripcion: {description}\nStock: {stock}";
         }
 
         public string Name
