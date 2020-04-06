@@ -19,6 +19,11 @@ namespace Lab3
             this.stock = stock;
         }
 
+        public string informationProduct()
+        {
+            return $"Nombre: {name}\nPrecio: {price}\nMarca: {brand}\nDescripcion: {description}\nStock: {stock}";
+        }
+
         public string Name
         {
             get { return name; }

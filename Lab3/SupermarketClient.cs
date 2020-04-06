@@ -5,10 +5,15 @@ namespace Lab3
 {
     public class SupermarketClient
     {
-        List<Client> clientes = new List<Client>();
+        List<Product> products = new List<Product>();
+        List<Client> clients = new List<Client>();
+        
 
-        public SupermarketClient()
+
+        public SupermarketClient(List<Client> clients, List<Product> products)
         {
+            this.products = products;
+            this.clients = clients;
 
         }
 
@@ -42,6 +47,10 @@ namespace Lab3
                     case 1:
 
                         Console.WriteLine("Prodcutos:\n");
+                        foreach (Product product in products)
+                        {
+                            Console.WriteLine(product.informationProduct());
+                        }
                         System.Threading.Thread.Sleep(1000);
                         break;
 

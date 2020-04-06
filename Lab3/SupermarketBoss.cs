@@ -9,9 +9,11 @@ namespace Lab3
         //List<Supervisor> supervisors = new List<Supervisor>();
         //List<Auxiliar> auxiliars = new List<Auxiliar>();
         //List<Cajero> cajeros = new List<Cajero>();
-        List<Client> clientes = new List<Client>();
+        List<Product> products = new List<Product>();
+        List<Client> clients = new List<Client>();
 
-        public SupermarketBoss()
+
+        public SupermarketBoss(List<Client>clients,List<Product>products)
         {
             Supervisor supervisor1 = new Supervisor("Felipe", "Ruiz", 123456789, "02/9/1990", "Chile", 2000, "Supervisor Pasillos", "8:00", "18:00");
             employees.Add(supervisor1);
@@ -25,10 +27,9 @@ namespace Lab3
             employees.Add(cajero1);
             Cajero cajero2 = new Cajero("Luis", "Singer", 364713946, "16/01/1960", "Chile", 1000, "Cajero", "8:00", "17:00");
             employees.Add(cajero2);
-            Client cliente1 = new Client("Elisa", "Verdu", 937462920, "08/09/1998", "Chile");
-            clientes.Add(cliente1);
-            Client cliente2 = new Client("Pablo", "Bur", 638492703, "15/02/1992", "EEUU");
-            clientes.Add(cliente2);
+            this.products = products;
+            this.clients = clients;
+           
         }
 
     
@@ -96,7 +97,7 @@ namespace Lab3
 
                         Console.WriteLine("Informacion Cliente: ");
 
-                        foreach (Client client in clientes)
+                        foreach (Client client in clients)
                         {
                             Console.WriteLine(client.information());
                         }
